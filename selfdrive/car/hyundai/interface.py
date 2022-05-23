@@ -50,15 +50,23 @@ class CarInterface(CarInterfaceBase):
     # lateral
     lateral_control = Params().get("LateralControl", encoding='utf-8')
     if lateral_control == 'INDI':
-      ret.lateralTuning.init('indi')
-      ret.lateralTuning.indi.innerLoopGainBP = [0.]
-      ret.lateralTuning.indi.innerLoopGainV = [3.3]
-      ret.lateralTuning.indi.outerLoopGainBP = [0.]
-      ret.lateralTuning.indi.outerLoopGainV = [2.8]
-      ret.lateralTuning.indi.timeConstantBP = [0.]
-      ret.lateralTuning.indi.timeConstantV = [1.4]
-      ret.lateralTuning.indi.actuatorEffectivenessBP = [0.]
-      ret.lateralTuning.indi.actuatorEffectivenessV = [1.8]
+      #ret.lateralTuning.init('indi')
+      #ret.lateralTuning.indi.innerLoopGainBP = [0.]
+      #ret.lateralTuning.indi.innerLoopGainV = [3.3]
+      #ret.lateralTuning.indi.outerLoopGainBP = [0.]
+      #ret.lateralTuning.indi.outerLoopGainV = [2.8]
+      #ret.lateralTuning.indi.timeConstantBP = [0.]
+      #ret.lateralTuning.indi.timeConstantV = [1.4]
+      #ret.lateralTuning.indi.actuatorEffectivenessBP = [0.]
+      #ret.lateralTuning.indi.actuatorEffectivenessV = [1.8]
+      
+      ret.lateralTuning.pid.kf = 0.00005
+      ret.lateralTuning.pid.kpBP = [0.]
+      ret.lateralTuning.pid.kpV = [0.25]
+      ret.lateralTuning.pid.kiBP = [0.]
+      ret.lateralTuning.pid.kiV = [0.05]
+    
+    
     elif lateral_control == 'LQR':
       ret.lateralTuning.init('lqr')
 
